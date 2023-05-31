@@ -16,10 +16,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CategoriesActivity extends AppCompatActivity {
-    public ActivityCategoriesBinding binding;
-    public List<String> categories = new ArrayList<>();
-    public CategoriesAdapter categoriesAdapter;
-    FakeApiService fakeApiService;
+    private ActivityCategoriesBinding binding;
+    private List<String> categories = new ArrayList<>();
+    private CategoriesAdapter categoriesAdapter;
+    private FakeApiService fakeApiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
