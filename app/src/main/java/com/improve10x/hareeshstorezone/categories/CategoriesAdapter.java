@@ -22,7 +22,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> 
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         CategoriesItemBinding binding = CategoriesItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        CategoryViewHolder categoryViewHolder =new CategoryViewHolder(binding);
+        CategoryViewHolder categoryViewHolder = new CategoryViewHolder(binding);
         return categoryViewHolder;
     }
 

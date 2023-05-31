@@ -18,6 +18,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CategoriesActivity extends AppCompatActivity {
+
     private ActivityCategoriesBinding binding;
     private List<String> categories = new ArrayList<>();
     private CategoriesAdapter categoriesAdapter;
@@ -64,21 +65,6 @@ public class CategoriesActivity extends AppCompatActivity {
 
     private void setupDummyData() {
         categories = new ArrayList<>();
-        /*Category electronics = new Category();
-        electronics.title = "Electronics";
-        categories.add(electronics);
-
-        Category jewelery = new Category();
-        jewelery.title = "Jewelery";
-        categories.add(jewelery);
-
-        Category mensClothing = new Category();
-        mensClothing.title = "Mens Clothing";
-        categories.add(mensClothing);
-
-        Category womensClothing = new Category();
-        womensClothing.title = "Women's Clothing";
-        categories.add(womensClothing);*/
     }
 
     private void setupCategoriesRv() {

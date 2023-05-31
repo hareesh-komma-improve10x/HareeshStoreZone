@@ -48,5 +48,5 @@ public class Product {
     private Float price;
     @SerializedName("image")
     private String imageUrl;
-    private Rating rating;
+    public Rating rating;
 }
