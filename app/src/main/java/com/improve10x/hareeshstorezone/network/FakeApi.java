@@ -1,4 +1,4 @@
-package com.improve10x.hareeshstorezone;
+package com.improve10x.hareeshstorezone.network;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -11,6 +11,5 @@ public class FakeApi {
                 .build();
         FakeApiService fakeApiService = retrofit.create(FakeApiService.class);
         return fakeApiService;
-
     }
 }

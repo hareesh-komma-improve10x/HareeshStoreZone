@@ -1,4 +1,4 @@
-package com.improve10x.hareeshstorezone;
+package com.improve10x.hareeshstorezone.categories;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.improve10x.hareeshstorezone.network.FakeApi;
+import com.improve10x.hareeshstorezone.network.FakeApiService;
 import com.improve10x.hareeshstorezone.databinding.ActivityCategoriesBinding;
 
 import java.util.ArrayList;

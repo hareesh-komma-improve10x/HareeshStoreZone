@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.improve10x.hareeshstorezone.categories.CategoriesActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override

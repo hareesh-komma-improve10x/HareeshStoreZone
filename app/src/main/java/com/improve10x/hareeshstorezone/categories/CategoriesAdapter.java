@@ -1,4 +1,4 @@
-package com.improve10x.hareeshstorezone;
+package com.improve10x.hareeshstorezone.categories;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.improve10x.hareeshstorezone.databinding.CategoriesItemBinding;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> {

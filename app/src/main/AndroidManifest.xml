@@ -27,7 +27,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".CategoriesActivity"
+            android:name=".categories.CategoriesActivity"
             android:exported="true">
 
             <meta-data

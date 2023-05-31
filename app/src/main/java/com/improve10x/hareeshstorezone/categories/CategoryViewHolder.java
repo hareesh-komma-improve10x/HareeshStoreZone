@@ -1,4 +1,4 @@
-package com.improve10x.hareeshstorezone;
+package com.improve10x.hareeshstorezone.categories;
 
 import android.view.View;
 
