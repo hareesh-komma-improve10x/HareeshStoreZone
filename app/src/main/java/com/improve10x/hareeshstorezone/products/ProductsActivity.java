@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.improve10x.hareeshstorezone.R;
 import com.improve10x.hareeshstorezone.databinding.ActivityProductsBinding;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ProductsActivity extends AppCompatActivity {
 
@@ -23,33 +26,47 @@ public class ProductsActivity extends AppCompatActivity {
     private List<Product> products = new ArrayList<>();
     private ProductsAdapter productsAdapter;
     private FakeApiService fakeApiService;
+    private String category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityProductsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        if (getIntent().hasExtra("category")) {
+            category = getIntent().getStringExtra("category");
+        }
         getSupportActionBar().setTitle("Products");
+        fetchData();
         setupAdapter();
         setupProductRv();
-        setupProductApiService();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        fetchData();
+        //setupProductApiService();
     }
 
     private void fetchData() {
-        Call<List<Product>> call = fakeApiService.fetchProducts();
+        FakeApi fakeApi = new FakeApi();
+        FakeApiService fakeApiService = fakeApi.createFakeApiService();
+        Call<List<Product>> call = fakeApiService.fetchProducts(category);
+        call.enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                List<Product> productList = response.body();
+                productsAdapter.setProducts(productList);
+                Toast.makeText(ProductsActivity.this, "Added Data", Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                Toast.makeText(ProductsActivity.this, "Failed To Loaded Data", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
-    private void setupProductApiService() {
+    /*private void setupProductApiService() {
         FakeApi fakeApi = new FakeApi();
         fakeApiService = fakeApi.createFakeApiService();
-    }
+    }*/
 
     private void setupProductRv() {
         binding.productRv.setLayoutManager(new GridLayoutManager(this, 2));

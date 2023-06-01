@@ -3,12 +3,14 @@ package com.improve10x.hareeshstorezone.categories;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.improve10x.hareeshstorezone.network.FakeApi;
 import com.improve10x.hareeshstorezone.network.FakeApiService;
 import com.improve10x.hareeshstorezone.databinding.ActivityCategoriesBinding;
+import com.improve10x.hareeshstorezone.products.ProductsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,5 +77,13 @@ public class CategoriesActivity extends AppCompatActivity {
         categoriesAdapter = new CategoriesAdapter();
         categoriesAdapter.setData(categories);
         binding.categoriesRv.setAdapter(categoriesAdapter);
+        categoriesAdapter.setOnItemActionListener(new OnItemActionListener() {
+            @Override
+            public void onItemClicked(String categoryName) {
+                Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
+                intent.putExtra("category", categoryName);
+                startActivity(intent);
+            }
+        });
     }
 }
