@@ -14,12 +14,13 @@
         android:layout_margin="4dp"
         app:cardCornerRadius="10dp"
         app:strokeColor="#70A7D3"
-        app:strokeWidth="4dp">
+        app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="4dp">
 
             <ImageView
                 android:id="@+id/image_img"
@@ -36,7 +37,7 @@
                 android:id="@+id/title_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:ellipsize="end"
                 android:maxLines="2"
                 android:text="@{product.title}"
                 android:textColor="#322C2C"
@@ -49,7 +50,6 @@
                 style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title_txt" />
 
@@ -68,9 +68,8 @@
                 android:id="@+id/rupees_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginBottom="4dp"
-                android:text="`₹` + String.valueOf(product.price)"
+                android:text="@{`₹` + String.valueOf(product.price)}"
                 android:textColor="#322C2C"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
