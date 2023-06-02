@@ -49,4 +49,14 @@ public class Product {
     @SerializedName("image")
     private String imageUrl;
     public Rating rating;
+    public String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }

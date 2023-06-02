@@ -3,6 +3,7 @@ package com.improve10x.hareeshstorezone.products;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -12,6 +13,8 @@ import com.improve10x.hareeshstorezone.databinding.ProductsItemBinding;
 import com.improve10x.hareeshstorezone.model.Product;
 import com.improve10x.hareeshstorezone.network.FakeApi;
 import com.improve10x.hareeshstorezone.network.FakeApiService;
+import com.improve10x.hareeshstorezone.productdetails.OnItemActionListener;
+import com.improve10x.hareeshstorezone.productdetails.ProductDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,5 +79,13 @@ public class ProductsActivity extends AppCompatActivity {
         productsAdapter = new ProductsAdapter();
         productsAdapter.setProducts(products);
         binding.productRv.setAdapter(productsAdapter);
+        productsAdapter.setOnItemActionListener(new OnItemActionListener() {
+            @Override
+            public void onClicked(int productId) {
+                Intent intent = new Intent(getApplicationContext(), ProductDetailsActivity.class);
+                intent.putExtra("productId", productId);
+                startActivity(intent);
+            }
+        });
     }
 }

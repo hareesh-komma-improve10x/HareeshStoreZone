@@ -15,6 +15,9 @@
         android:theme="@style/Theme.HareeshStoreZone"
         tools:targetApi="31">
         <activity
+            android:name=".productdetails.ProductDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".products.ProductsActivity"
             android:exported="false">
             <meta-data

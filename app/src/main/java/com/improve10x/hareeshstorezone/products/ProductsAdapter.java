@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.improve10x.hareeshstorezone.categories.OnItemActionListener;
+import com.improve10x.hareeshstorezone.productdetails.OnItemActionListener;
 import com.improve10x.hareeshstorezone.databinding.ProductsItemBinding;
 import com.improve10x.hareeshstorezone.model.Product;
 
@@ -15,10 +15,13 @@ import java.util.List;
 public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
     public List<Product> products;
 
-
+    private OnItemActionListener onItemActionListener;
     void setProducts(List<Product> productList) {
         products = productList;
         notifyDataSetChanged();
+    }
+    void setOnItemActionListener(OnItemActionListener onItemActionListener) {
+        this.onItemActionListener = onItemActionListener;
     }
 
     @NonNull
@@ -34,6 +37,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
         Product product = products.get(position);
         holder.binding.setProduct(product);
         holder.binding.ratingBar.setRating(product.rating.getRate());
+        holder.binding.getRoot().setOnClickListener(v -> {
+            onItemActionListener.onClicked(product.getId());
+        });
     }
 
     @Override

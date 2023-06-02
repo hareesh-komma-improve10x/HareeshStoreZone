@@ -68,13 +68,22 @@
                 android:id="@+id/product_rupees_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
                 android:text="@{`₹` + String.valueOf(product.price)}"
                 android:textColor="#322C2C"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rating_bar"
                 tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/product_description_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{product.description}"
+                tools:text = "TextView"
+                android:textColor="#291E1E"
+                app:layout_constraintStart_toStartOf="@+id/product_rupees_txt"
+                app:layout_constraintTop_toBottomOf="@+id/product_rupees_txt" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
