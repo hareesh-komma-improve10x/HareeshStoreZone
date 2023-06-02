@@ -33,6 +33,7 @@ public class CategoriesActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCategoriesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().show();
         getSupportActionBar().setTitle("Categories");
         setupAdapter();
         setupCategoriesRv();

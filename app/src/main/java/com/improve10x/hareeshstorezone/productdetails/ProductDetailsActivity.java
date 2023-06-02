@@ -27,6 +27,7 @@ public class ProductDetailsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityProductDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().show();
         getSupportActionBar().setTitle("Product Details");
         if (getIntent().hasExtra(Constants.KEY_PRODUCTS_VALUE)) {
             productId = getIntent().getIntExtra(Constants.KEY_PRODUCTS_VALUE, productId);

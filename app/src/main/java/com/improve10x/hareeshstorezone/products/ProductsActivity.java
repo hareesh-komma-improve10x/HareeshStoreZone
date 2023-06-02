@@ -46,6 +46,7 @@ public class ProductsActivity extends BaseActivity {
         if (getIntent().hasExtra(Constants.KEY_CATEGORY_VALUE)) {
             category = getIntent().getStringExtra(Constants.KEY_CATEGORY_VALUE);
         }
+        getSupportActionBar().show();
         getSupportActionBar().setTitle(category);
         fetchData();
         setupAdapter();
