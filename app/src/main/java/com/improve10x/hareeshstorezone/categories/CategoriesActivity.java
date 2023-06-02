@@ -51,9 +51,11 @@ public class CategoriesActivity extends BaseActivity {
     private void hideProgressBar() {
         binding.progressBar.setVisibility(View.GONE);
     }
+
     private void showProgressBar() {
         binding.progressBar.setVisibility(View.VISIBLE);
     }
+
     private void fetchData() {
         showProgressBar();
         showLoadingText();
@@ -74,10 +76,12 @@ public class CategoriesActivity extends BaseActivity {
             }
         });
     }
+
     private void setupCategoriesRv() {
         binding.categoriesRv.setLayoutManager(new LinearLayoutManager(this));
         binding.categoriesRv.setAdapter(categoriesAdapter);
     }
+
     private void setupAdapter() {
         categoriesAdapter = new CategoriesAdapter();
         categoriesAdapter.setData(categories);

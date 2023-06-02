@@ -13,14 +13,18 @@ import java.util.List;
 
 public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
     private List<Product> products;
+
     OnItemActionListener onItemActionListener;
+
     void setProducts(List<Product> productList) {
         products = productList;
         notifyDataSetChanged();
     }
+
     void setOnItemActionListener(OnItemActionListener onItemActionListener) {
         this.onItemActionListener = onItemActionListener;
     }
+
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

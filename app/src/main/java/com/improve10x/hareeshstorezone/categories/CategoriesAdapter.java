@@ -17,9 +17,11 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> 
         categories = categoryList;
         notifyDataSetChanged();
     }
+
     void setOnItemActionListener(OnItemActionListener onItemActionListener) {
         this.onItemActionListener = onItemActionListener;
     }
+
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -27,6 +29,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> 
         CategoryViewHolder categoryViewHolder = new CategoryViewHolder(categoriesItemBinding);
         return categoryViewHolder;
     }
+
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         String product = categories.get(position);
@@ -35,6 +38,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> 
             onItemActionListener.onItemClicked(product);
         });
     }
+
     @Override
     public int getItemCount() {
         return categories.size();

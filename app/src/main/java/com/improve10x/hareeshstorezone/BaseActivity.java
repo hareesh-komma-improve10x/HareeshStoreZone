@@ -9,7 +9,6 @@ import com.improve10x.hareeshstorezone.network.FakeApi;
 import com.improve10x.hareeshstorezone.network.FakeApiService;
 
 public class BaseActivity extends AppCompatActivity {
-
     protected FakeApiService fakeApiService;
 
     @Override

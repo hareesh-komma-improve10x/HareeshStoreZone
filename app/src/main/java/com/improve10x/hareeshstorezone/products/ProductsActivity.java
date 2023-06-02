@@ -30,14 +30,6 @@ public class ProductsActivity extends BaseActivity {
     private ProductsAdapter productsAdapter;
     private String category;
 
-    private void hideLoadingText() {
-        binding.pleaseWaitTxt.setVisibility(View.GONE);
-    }
-
-    private void showLoadingText() {
-        binding.pleaseWaitTxt.setVisibility(View.VISIBLE);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +43,14 @@ public class ProductsActivity extends BaseActivity {
         fetchData();
         setupAdapter();
         setupProductRv();
+    }
+
+    private void hideLoadingText() {
+        binding.pleaseWaitTxt.setVisibility(View.GONE);
+    }
+
+    private void showLoadingText() {
+        binding.pleaseWaitTxt.setVisibility(View.VISIBLE);
     }
 
     private void hideProgressBar() {
