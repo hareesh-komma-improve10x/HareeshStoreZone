@@ -1,6 +1,7 @@
 package com.improve10x.hareeshstorezone.network;
 
 import com.improve10x.hareeshstorezone.Constants;
+import com.improve10x.hareeshstorezone.cart.CartProduct;
 import com.improve10x.hareeshstorezone.model.Product;
 
 import java.util.List;
@@ -18,4 +19,7 @@ public interface FakeApiService {
 
     @GET("products/{categoryId}")
     Call<Product> fetchProductDetails(@Path("categoryId") int productId);
+
+    @GET("/carts/{userId}")
+    Call<CartProduct> fetchCartProducts(@Path("userId") int userId);
 }

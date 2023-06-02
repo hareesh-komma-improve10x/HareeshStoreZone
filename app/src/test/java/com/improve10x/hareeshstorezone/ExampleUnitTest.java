@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import com.google.gson.Gson;
+import com.improve10x.hareeshstorezone.cart.CartProduct;
 import com.improve10x.hareeshstorezone.model.Product;
 import com.improve10x.hareeshstorezone.network.FakeApi;
 import com.improve10x.hareeshstorezone.network.FakeApiService;
@@ -50,5 +51,14 @@ public class ExampleUnitTest {
         Product productList = call.execute().body();
         assertNotNull(productList);
         System.out.println(new Gson().toJson(productList));
+    }
+
+    @Test
+    public void getCart() throws IOException {
+        FakeApiService fakeApiService = new FakeApi().createFakeApiService();
+        Call<CartProduct> call = fakeApiService.fetchCartProducts(1);
+        CartProduct categories = call.execute().body();
+        assertNotNull(categories);
+        System.out.println(new Gson().toJson(categories));
     }
 }
