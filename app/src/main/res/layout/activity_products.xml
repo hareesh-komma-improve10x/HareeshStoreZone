@@ -25,4 +25,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/please_wait_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please wait...Loading"
+        android:textColor="#221C1C"
+        app:layout_constraintEnd_toEndOf="@+id/progress_Bar"
+        app:layout_constraintStart_toStartOf="@+id/progress_Bar"
+        app:layout_constraintTop_toBottomOf="@+id/progress_Bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

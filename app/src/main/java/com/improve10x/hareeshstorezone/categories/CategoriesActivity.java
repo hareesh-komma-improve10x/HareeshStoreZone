@@ -39,6 +39,14 @@ public class CategoriesActivity extends BaseActivity {
         fetchData();
     }
 
+    private void hideLoadingText() {
+        binding.pleaseWaitTxt.setVisibility(View.GONE);
+    }
+
+    private void showLoadingText() {
+        binding.pleaseWaitTxt.setVisibility(View.VISIBLE);
+    }
+
     private void hideProgressBar() {
         binding.progressBar.setVisibility(View.GONE);
     }
@@ -47,17 +55,20 @@ public class CategoriesActivity extends BaseActivity {
     }
     private void fetchData() {
         showProgressBar();
+        showLoadingText();
         Call<List<String>> call = fakeApiService.fetchCategories();
         call.enqueue(new Callback<List<String>>() {
             @Override
             public void onResponse(Call<List<String>> call, Response<List<String>> response) {
                 hideProgressBar();
+                hideLoadingText();
                 List<String> categoriesList = response.body();
                 categoriesAdapter.setData(categoriesList);
             }
             @Override
             public void onFailure(Call<List<String>> call, Throwable t) {
                 hideProgressBar();
+                hideLoadingText();
                 showToast("Failed to Load Data");
             }
         });
@@ -71,7 +82,6 @@ public class CategoriesActivity extends BaseActivity {
         categoriesAdapter.setData(categories);
         categoriesAdapter.setOnItemActionListener(categoryName -> {
             Intent intent = new Intent(CategoriesActivity.this, ProductsActivity.class);
-            // Todo use constants
             intent.putExtra(Constants.KEY_CATEGORY_VALUE, categoryName);
             startActivity(intent);
         });

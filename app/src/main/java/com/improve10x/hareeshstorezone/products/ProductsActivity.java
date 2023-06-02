@@ -30,14 +30,21 @@ public class ProductsActivity extends BaseActivity {
     private ProductsAdapter productsAdapter;
     private String category;
 
+    private void hideLoadingText() {
+        binding.pleaseWaitTxt.setVisibility(View.GONE);
+    }
+
+    private void showLoadingText() {
+        binding.pleaseWaitTxt.setVisibility(View.VISIBLE);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityProductsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        // Todo use constants
-        if (getIntent().hasExtra("category")) {
-            category = getIntent().getStringExtra("category");
+        if (getIntent().hasExtra(Constants.KEY_CATEGORY_VALUE)) {
+            category = getIntent().getStringExtra(Constants.KEY_CATEGORY_VALUE);
         }
         getSupportActionBar().setTitle(category);
         fetchData();
@@ -55,17 +62,20 @@ public class ProductsActivity extends BaseActivity {
 
     private void fetchData() {
         showProgressBar();
+        showLoadingText();
         Call<List<Product>> call = fakeApiService.fetchProducts(category);
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 hideProgressBar();
+                hideLoadingText();
                 List<Product> productList = response.body();
                 productsAdapter.setProducts(productList);
             }
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
                 hideProgressBar();
+                hideLoadingText();
                 showToast("Failed To Loaded Data");
             }
         });
