@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.improve10x.hareeshstorezone.BaseActivity;
+import com.improve10x.hareeshstorezone.Constants;
 import com.improve10x.hareeshstorezone.network.FakeApi;
 import com.improve10x.hareeshstorezone.network.FakeApiService;
 import com.improve10x.hareeshstorezone.databinding.ActivityCategoriesBinding;
@@ -71,7 +72,7 @@ public class CategoriesActivity extends BaseActivity {
         categoriesAdapter.setOnItemActionListener(categoryName -> {
             Intent intent = new Intent(CategoriesActivity.this, ProductsActivity.class);
             // Todo use constants
-            intent.putExtra("category", categoryName);
+            intent.putExtra(Constants.KEY_CATEGORY_VALUE, categoryName);
             startActivity(intent);
         });
     }

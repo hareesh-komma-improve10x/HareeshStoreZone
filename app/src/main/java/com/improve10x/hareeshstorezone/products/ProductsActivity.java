@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.improve10x.hareeshstorezone.BaseActivity;
+import com.improve10x.hareeshstorezone.Constants;
 import com.improve10x.hareeshstorezone.databinding.ActivityProductsBinding;
 import com.improve10x.hareeshstorezone.model.Product;
 import com.improve10x.hareeshstorezone.network.FakeApi;
@@ -79,7 +80,7 @@ public class ProductsActivity extends BaseActivity {
         productsAdapter.setOnItemActionListener(productId -> {
             Intent intent = new Intent(ProductsActivity.this, ProductDetailsActivity.class);
             // Todo use constants
-            intent.putExtra("productId", productId);
+            intent.putExtra(Constants.KEY_PRODUCTS_VALUE, productId);
             startActivity(intent);
         });
     }

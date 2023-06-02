@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.improve10x.hareeshstorezone.BaseActivity;
+import com.improve10x.hareeshstorezone.Constants;
 import com.improve10x.hareeshstorezone.R;
 import com.improve10x.hareeshstorezone.databinding.ActivityProductDetailsBinding;
 import com.improve10x.hareeshstorezone.model.Product;
@@ -27,8 +28,8 @@ public class ProductDetailsActivity extends BaseActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Product Details");
         //Todo use constants
-        if (getIntent().hasExtra("productId")) {
-            productId = getIntent().getIntExtra("productId", productId);
+        if (getIntent().hasExtra(Constants.KEY_PRODUCTS_VALUE)) {
+            productId = getIntent().getIntExtra(Constants.KEY_PRODUCTS_VALUE, productId);
         }
         fetchProductDetails();
     }
