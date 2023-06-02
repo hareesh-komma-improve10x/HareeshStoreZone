@@ -1,6 +1,8 @@
 package com.improve10x.hareeshstorezone.model;
 
 public class Rating {
+    private Float rate;
+    private Integer count;
     public Float getRate() {
         return rate;
     }
@@ -16,7 +18,4 @@ public class Rating {
     public void setCount(Integer count) {
         this.count = count;
     }
-
-    private Float rate;
-    private Integer count;
 }

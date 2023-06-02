@@ -9,10 +9,9 @@ import com.improve10x.hareeshstorezone.databinding.ActivityCategoriesBinding;
 import com.improve10x.hareeshstorezone.databinding.CategoriesItemBinding;
 
 public class CategoryViewHolder extends RecyclerView.ViewHolder {
-    CategoriesItemBinding binding;
-
+    CategoriesItemBinding categoriesItemBinding;
     public CategoryViewHolder(CategoriesItemBinding categoriesItemBinding) {
         super(categoriesItemBinding.getRoot());
-        binding = categoriesItemBinding;
+        this.categoriesItemBinding = categoriesItemBinding;
     }
 }
