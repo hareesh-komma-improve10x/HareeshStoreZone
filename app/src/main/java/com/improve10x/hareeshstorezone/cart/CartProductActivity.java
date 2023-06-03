@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.improve10x.hareeshstorezone.BaseActivity;
 import com.improve10x.hareeshstorezone.R;
 import com.improve10x.hareeshstorezone.databinding.ActivityCartProductBinding;
 
@@ -22,15 +23,6 @@ public class CartProductActivity extends AppCompatActivity {
         binding = ActivityCartProductBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Cart");
-        showProgressBar();
-        hideProgressBar();
-    }
-
-    private void hideProgressBar() {
-        binding.progressBar.setVisibility(View.VISIBLE);
-    }
-
-    private void showProgressBar() {
-        binding.progressBar.setVisibility(View.GONE);
-    }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      }
 }

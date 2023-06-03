@@ -1,14 +1,19 @@
 package com.improve10x.hareeshstorezone.productdetails;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.improve10x.hareeshstorezone.BaseActivity;
 import com.improve10x.hareeshstorezone.Constants;
 import com.improve10x.hareeshstorezone.R;
+import com.improve10x.hareeshstorezone.cart.CartProductActivity;
 import com.improve10x.hareeshstorezone.databinding.ActivityProductDetailsBinding;
 import com.improve10x.hareeshstorezone.model.Product;
 import com.improve10x.hareeshstorezone.network.FakeApi;
@@ -29,6 +34,7 @@ public class ProductDetailsActivity extends BaseActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().show();
         getSupportActionBar().setTitle("Product Details");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (getIntent().hasExtra(Constants.KEY_PRODUCTS_VALUE)) {
             productId = getIntent().getIntExtra(Constants.KEY_PRODUCTS_VALUE, productId);
         }

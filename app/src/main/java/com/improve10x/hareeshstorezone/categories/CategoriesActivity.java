@@ -1,15 +1,20 @@
 package com.improve10x.hareeshstorezone.categories;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.improve10x.hareeshstorezone.BaseActivity;
 import com.improve10x.hareeshstorezone.Constants;
+import com.improve10x.hareeshstorezone.R;
+import com.improve10x.hareeshstorezone.cart.CartProductActivity;
 import com.improve10x.hareeshstorezone.network.FakeApi;
 import com.improve10x.hareeshstorezone.network.FakeApiService;
 import com.improve10x.hareeshstorezone.databinding.ActivityCategoriesBinding;
@@ -35,9 +40,11 @@ public class CategoriesActivity extends BaseActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().show();
         getSupportActionBar().setTitle("Categories");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupAdapter();
         setupCategoriesRv();
         fetchData();
+
     }
 
     private void hideLoadingText() {
