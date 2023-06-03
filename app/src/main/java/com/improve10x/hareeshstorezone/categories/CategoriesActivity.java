@@ -30,7 +30,7 @@ import retrofit2.Response;
 public class CategoriesActivity extends BaseActivity {
 
     private ActivityCategoriesBinding binding;
-    private List<String> categories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
     private CategoriesAdapter categoriesAdapter;
 
     @Override
@@ -66,17 +66,17 @@ public class CategoriesActivity extends BaseActivity {
     private void fetchData() {
         showProgressBar();
         showLoadingText();
-        Call<List<String>> call = fakeApiService.fetchCategories();
-        call.enqueue(new Callback<List<String>>() {
+        Call<List<Category>> call = fakeApiService.fetchCategories();
+        call.enqueue(new Callback<List<Category>>() {
             @Override
-            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
+            public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
                 hideProgressBar();
                 hideLoadingText();
-                List<String> categoriesList = response.body();
+                List<Category> categoriesList = response.body();
                 categoriesAdapter.setData(categoriesList);
             }
             @Override
-            public void onFailure(Call<List<String>> call, Throwable t) {
+            public void onFailure(Call<List<Category>> call, Throwable t) {
                 hideProgressBar();
                 hideLoadingText();
                 showToast("Failed to Load Data");
