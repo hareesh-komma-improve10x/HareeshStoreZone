@@ -56,7 +56,7 @@ public class ExampleUnitTest {
     @Test
     public void getCart() throws IOException {
         FakeApiService fakeApiService = new FakeApi().createFakeApiService();
-        Call<CartProduct> call = fakeApiService.fetchCartProducts(1);
+        Call<CartProduct> call = fakeApiService.fetchCartProducts();
         CartProduct categories = call.execute().body();
         assertNotNull(categories);
         System.out.println(new Gson().toJson(categories));
